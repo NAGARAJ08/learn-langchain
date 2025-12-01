@@ -53,4 +53,5 @@ llm = Ollama(model='gemma:2b')
 chain = prompt | llm | output_parser
 
 if input_question:
-    st.write(chain.invoke({'question': input_question}))
+    result = chain.invoke({'question': input_question})
+    st.write(result['answer'])
